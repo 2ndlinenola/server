@@ -1,0 +1,10 @@
+{
+  "name": "2ndline-server",
+  "description": "2ndline location server",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "coffee-script": "1.7.1",
+    "express": "3.x"
+  }
+}
