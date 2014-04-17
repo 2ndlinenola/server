@@ -9,6 +9,7 @@ io     = socket.listen server
 io.set "transports", ["xhr-polling"]
 
 app.use express.bodyParser()
+app.use express.static(__dirname + "/public")
 
 # Sockets code
 
