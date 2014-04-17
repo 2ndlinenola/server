@@ -39,9 +39,21 @@ sendPosition = (position) ->
   _.each sockets, (socket) ->
     socket.emit "position", position
 
-app.post "/report.json", (req, res) ->
+clearPosition = ->
+  latestPositionTime = new Date
+  latestPosition     = null
+
+  _.each sockets, (socket) ->
+    socket.emit "clear"
+
+app.post "/report", (req, res) ->
   console.log "got position", req.body
   _.defer sendPosition, req.body.location
+  res.end "Thanks brah!"
+
+app.post "/clear", (req, res) ->
+  console.log "clearing position", req.body
+  _.defer clearPosition, req.body.location
   res.end "Thanks brah!"
 
 port = Number(process.env.PORT || 5000)

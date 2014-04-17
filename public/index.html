@@ -28,6 +28,13 @@
           port: 80, transports: ["xhr-polling"]
         });
 
+        socket.on("clear", function () {
+          if (marker) {
+            marker.setMap(null);
+            marker = null;
+          }
+        });
+
         socket.on("position", function (position) {
           if (marker) {
             marker.setMap(null);
