@@ -5,6 +5,8 @@
   "private": true,
   "dependencies": {
     "coffee-script": "1.7.1",
-    "express": "3.x"
+    "express": "3.x",
+    "socket.io": "0.9.16",
+    "underscore": "1.6.0"
   }
 }
