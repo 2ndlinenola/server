@@ -24,7 +24,7 @@ io.sockets.on "connection", (socket) ->
   socket.on "disconnect", ->
     sockets = _.without sockets, socket
 
-  if latestPosition? && (new Date - latestPositionTime).getTime() > latestTimeout
+  if latestPosition? && (new Date) - latestPositionTime > latestTimeout
     latestPosition = null
 
   return unless latestPosition?
@@ -40,8 +40,7 @@ sendPosition = (position) ->
     socket.emit "position", position
 
 app.post "/report.json", (req, res) ->
-  console.log "got request!"
-  console.log req.body
+  console.log "got position", req.body
   _.defer sendPosition, req.body.location
   res.end "Thanks brah!"
 
