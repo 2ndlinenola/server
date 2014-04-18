@@ -1,16 +1,31 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
     <style type="text/css">
       html { height: 100% }
       body { height: 100%; margin: 0; padding: 0 }
-      #map-canvas { height: 100% }
+
+      #map-canvas {
+        height: 500px;
+        margin-top: 23px;
+        margin-bottom: 23px;
+      }
     </style>
-    <script src="/socket.io/socket.io.js"></script>
+
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="http://secondline-server.herokuapp.com/socket.io/socket.io.js"></script>
+
     <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?sensor=false">
     </script>
+
     <script type="text/javascript">
       function initialize() {
         var mapOptions = {
@@ -56,6 +71,31 @@
     </script>
   </head>
   <body>
-    <div id="map-canvas"/>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-offset-4 col-md-4 text-center">
+          <h3>Second Line Parade Tracker</h3>
+          <span class="help-block">Where the bumckjumping at?</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-offset-2 col-md-8">
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="#tracker" data-toggle="tab">Tracker</a></li>
+            <li><a href="#social" data-toggle="tab">Social feed</a></li>
+          </ul>
+        
+          <div class="tab-content">
+            <div class="tab-pane active" id="tracker">
+              <div id="map-canvas"/></div>
+            </div>
+            <div class="tab-pane active" id="social">
+              <a class="twitter-timeline" href="https://twitter.com/search?q=%23secondline" data-widget-id="457298748150796290">#secondline Twitter Feed</a>
+              <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
