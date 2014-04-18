@@ -53,7 +53,7 @@ app.post "/report", (req, res) ->
 
 app.post "/clear", (req, res) ->
   console.log "clearing position", req.body
-  _.defer clearPosition, req.body.location
+  _.defer clearPosition
   res.end "Thanks brah!"
 
 port = Number(process.env.PORT || 5000)
