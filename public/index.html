@@ -38,11 +38,16 @@
           scrollwheel:        false,
           streetViewControl:  false,
           zoomControl:        false,
-          center: new google.maps.LatLng(29.9511782,-90.0689848),
+          center: new google.maps.LatLng(29.947877,-90.114755),
           zoom: 15
         };
         var map = new google.maps.Map(document.getElementById("map-canvas"),
             mapOptions);
+
+        var route = new google.maps.KmlLayer({
+          url: "http://mapsengine.google.com/map/u/0/kml?mid=zaIRRFV8XaRQ.k2GoQJ3ppZFs"
+        });
+        route.setMap(map);
 
         var marker = null;
         
@@ -72,6 +77,7 @@
           });
 
           map.setCenter(position);
+          map.setZoom(15);
         });
       }
       google.maps.event.addDomListener(window, 'load', initialize);
