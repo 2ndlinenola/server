@@ -9,12 +9,20 @@
 
     <style type="text/css">
       html { height: 100% }
-      body { height: 100%; margin: 0; padding: 0 }
+      body {
+        background-image:url(img/background.jpg); background-size: cover;
+        height: 100%;
+        margin: 0;
+        padding: 0 }
 
       #map-canvas {
         height: 500px;
         margin-top: 23px;
         margin-bottom: 23px;
+      }
+
+      .bg-tracker {
+        background-color: rgba(252, 248, 227, 0.79);
       }
     </style>
 
@@ -86,13 +94,13 @@
   <body>
     <div class="container">
       <div class="row">
-        <div class="col-md-offset-4 col-md-4 text-center">
-          <h3>Second Line Parade Tracker</h3>
+        <div class="col-md-offset-2 col-md-8 text-center bg-tracker">
+          <h3>Pigeon Town Steppers Parade Tracker</h3>
           <span class="help-block">Where the buckjumpers at?</span>
         </div>
       </div>
       <div class="row">
-        <div class="col-md-offset-2 col-md-8">
+        <div class="col-md-offset-2 col-md-8 bg-tracker">
           <ul class="nav nav-tabs">
             <li class="active"><a href="#tracker" data-toggle="tab">Tracker</a></li>
             <li><a href="#social" data-toggle="tab">Social feed</a></li>
@@ -102,7 +110,7 @@
             <div class="tab-pane active" id="tracker">
               <div id="map-canvas"/></div>
             </div>
-            <div class="tab-pane" id="social">
+            <div class="tab-pane text-center" id="social">
               <a class="twitter-timeline" href="https://twitter.com/search?q=%23secondline" data-widget-id="457298748150796290">#secondline Twitter Feed</a>
               <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
             </div>
