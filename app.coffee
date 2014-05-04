@@ -16,7 +16,7 @@ app.use express.static(__dirname + "/public")
 sockets = []
 latestPositionTime = new Date
 latestPosition     = null
-latestTimeout      = 10*60*1000 # 10 minutes
+latestTimeout      = 4*60*60*1000 # 4 hours..
 
 io.sockets.on "connection", (socket) ->
   sockets.push socket
