@@ -40,28 +40,30 @@
           port: 80
         });
 
-        socket.on("clear", function (name) {
-          if (!marker) {
-            return;
+        socket.on("clear", function () {
+          if (marker) {
+            marker.setMap(null);
+            marker = null;
           }
- 
-          marker.setMap(null);
-          marker = null;
         });
 
-        socket.on("position", function (position, name) {
+        socket.on("position", function (position) {
+          if (marker) {
+            marker.setMap(null);
+            marker = null;
+          }
+
           var position = new google.maps.LatLng(position.latitude, position.longitude);
 
-          if (!marker) {
-            marker = new google.maps.Marker({
-              position: position,
-              map: map,
-              icon: "http://secondline-server.herokuapp.com/img/pointer.png",
-              title: "position"
-            });
-          } else {
-            marker.setPosition(position);
-          }
+          marker = new google.maps.Marker({
+            position: position,
+            map: map,
+            icon: "http://secondline-server.herokuapp.com/img/pointer.png",
+            title: "position"
+          });
+
+          map.setCenter(position);
+          map.setZoom(15);
         });
       }
       google.maps.event.addDomListener(window, 'load', initialize);
