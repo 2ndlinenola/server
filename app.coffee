@@ -6,7 +6,6 @@ socket  = require "socket.io"
 app    = express()
 server = http.createServer app
 io     = socket.listen server
-io.set "transports", ["xhr-polling"]
 
 app.use express.bodyParser()
 app.use express.static(__dirname + "/public")
