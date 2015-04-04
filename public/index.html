@@ -34,6 +34,11 @@
         var map = new google.maps.Map(document.getElementById("map-canvas"),
             mapOptions);
 
+        var route = new google.maps.KmlLayer({
+          url: "http://www.google.com/maps/d/u/0/kml?mid=zLwZMY18RMfY.kBd6K2nerOe8"
+        });
+        route.setMap(map);
+
         var marker = null;
 
         var socket = io.connect("http://secondline-server.herokuapp.com",{
