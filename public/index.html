@@ -66,6 +66,9 @@
             icon: "http://secondline-server.herokuapp.com/img/pointer.png",
             title: "position"
           });
+
+          map.setCenter(position);
+          map.setZoom(15);
         });
       }
       google.maps.event.addDomListener(window, 'load', initialize);
